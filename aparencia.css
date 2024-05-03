@@ -1,0 +1,54 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    background: #292929;
+}
+
+.jogo_memoria {
+    width: 640px;
+    height: 640px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    perspective: 1000px;
+}
+
+.carta {
+    width: calc(25% - 10px);
+    height: calc(33.333% - 10px);
+    margin: 5px;
+    position: relative;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform .5s
+}
+
+.carta:active {
+    transform: scale(.97);
+    transition: transform .2s;
+}
+
+.carta.flip {
+    transform: rotateY(180deg);
+}
+
+.imagem_frente,
+.imagem_costas {
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    position: absolute;
+    border-radius: 5px;
+    background: rgb(61, 61, 61);   
+    backface-visibility: hidden; 
+} 
+
+.imagem_frente {
+    transform: rotateY(180deg);
+}
